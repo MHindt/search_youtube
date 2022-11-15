@@ -1,6 +1,5 @@
 
-
-
+const key = 'AIzaSyCpto-SSAggaLgzNqK_Q_HRiuib0T7q8AY'
 //data to be sent as params in fetch request
 const data = {
     part: 'snippet',
