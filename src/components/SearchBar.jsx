@@ -5,12 +5,13 @@ class SearchBar extends React.Component {
         searchInput: ''
     }
     onInputChange = (e) => {
-        console.log(e.target.value);
+       //console.log(e.target.value);
         this.setState({ searchInput: e.target.value})
     }
     onFormSubmit = (e) => {
         e.preventDefault();
         //TODO make sure we call callback from parent component
+        this.props.onFormSubmit(this.state.searchInput);
     }
     render() {
         return( <div className='search bar ui segment'>
