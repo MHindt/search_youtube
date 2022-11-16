@@ -12,7 +12,7 @@ class App extends React.Component {
     selectedVideo: null,
   };
   onSearchSubmit = async (searchInput) => {
-    console.log(searchInput);
+    //console.log(searchInput);
     const response = await fetch(
       url +
         new URLSearchParams({
@@ -24,7 +24,7 @@ class App extends React.Component {
     this.setState({ videos: data.items });
   };
   onSelectedVideo = (video) => {
-    console.log('Inside of App: ', video);
+    //console.log('Inside of App: ', video);
     this.setState({ selectedVideo: video });
   };
   render() {
