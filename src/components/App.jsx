@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import VideoDetail from './VideoDetail'
 //REact uses dotenv under the hood naming convention REACT_KEY_WHATEVERNAME 
 //can access with process.env.REACT_KEY_WHATEVERNAME 
 import url from '../apis/youTube';
@@ -7,7 +8,8 @@ import VideoList from './VideoList';
 
 class App extends React.Component {
     state = {
-        videos: []
+        videos: [],
+        selectedVideo: null
     }
     onSearchSubmit = async (searchInput) => {
         console.log(searchInput);
@@ -18,11 +20,16 @@ class App extends React.Component {
       console.log(data.items);
       this.setState({ videos: data.items })
     }
+    onSelectedVideo = (video) => {
+      console.log('Inside of App: ', video);
+      this.setState({ selectedVideo: video})
+    }
  render() {
     console.log(url);
     return <div className='ui container'>
         <SearchBar onFormSubmit={this.onSearchSubmit}/>
-        <VideoList videos={this.state.videos}/>
+        <VideoDetail video={this.state.selectedVideo}/>
+        <VideoList onSelectedVideo= {this.onSelectedVideo} videos={this.state.videos}/>
     </div>
  }
 }
